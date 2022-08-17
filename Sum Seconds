@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class sumSeconds_01 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        int timeFirst = Integer.parseInt(scan.nextLine());
+        int timeSecond = Integer.parseInt(scan.nextLine());
+        int timeThird = Integer.parseInt(scan.nextLine());
+
+        int allSecond = timeFirst + timeSecond + timeThird;
+
+        int minutes = allSecond / 60;
+        int second = allSecond % 60;
+
+        System.out.printf("%d:%02d", minutes, second);
+    }
+}
