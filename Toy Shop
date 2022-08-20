@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class toyShop_04 {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        double priceForExcursion = Double.parseDouble(scan.nextLine());
+        int puzzleNum = Integer.parseInt(scan.nextLine());
+        int dollsNum = Integer.parseInt(scan.nextLine());
+        int bearsNum = Integer.parseInt(scan.nextLine());
+        int minuonsNum = Integer.parseInt(scan.nextLine());
+        int truckNum = Integer.parseInt(scan.nextLine());
+
+        double puzzlePrice = 2.6;
+        double dollsPrice = 3;
+        double bearPrice = 4.1;
+        double minuonsPrice = 8.2;
+        double truckPrice = 2;
+
+        int numbersOfToys = puzzleNum + dollsNum + bearsNum+ minuonsNum + truckNum;
+
+        double priceForAll = puzzlePrice * puzzleNum + dollsPrice * dollsNum +
+                bearPrice * bearsNum + minuonsPrice * minuonsNum +
+                truckPrice * truckNum;
+
+        if (numbersOfToys >= 50){
+            double discount = priceForAll * 0.25;
+            priceForAll = priceForAll - discount;
+        }
+        double finalPriceAfterRent = priceForAll - (priceForAll * 0.1);
+
+        if (priceForExcursion <= finalPriceAfterRent){
+            finalPriceAfterRent -= priceForExcursion;
+            System.out.printf("Yes! %.2f lv left.", finalPriceAfterRent);
+        }else {
+            finalPriceAfterRent =Math.abs(finalPriceAfterRent - priceForExcursion);
+            System.out.printf("Not enough money! %.2f lv needed.", finalPriceAfterRent);
+        }
+    }
+}
