@@ -1,0 +1,36 @@
+package godzillaVs;
+
+import java.util.Scanner;
+
+public class Kong_05 {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+
+        double budgetForMovie = Double.parseDouble(scan.nextLine());
+        int extraForMovie = Integer.parseInt(scan.nextLine());
+        double priceForClothes = Double.parseDouble(scan.nextLine());
+
+        double priceForDecor = budgetForMovie * 0.1;
+        double allClothesPrice = extraForMovie * priceForClothes;
+
+        double discount = 0.1;
+        double discountClothes = 0;
+
+        if (extraForMovie >= 150){
+            discountClothes = discount * allClothesPrice;
+            allClothesPrice = allClothesPrice - discountClothes;
+        }
+
+        double finalPriceForMovie = priceForDecor + allClothesPrice;
+
+        if (budgetForMovie >= finalPriceForMovie){
+            double leftMoney = budgetForMovie - finalPriceForMovie;
+            System.out.println("Action!");
+            System.out.printf("Wingard starts filming with %.2f leva left.", leftMoney);
+        }else {
+            double neededMoney = Math.abs(budgetForMovie - finalPriceForMovie);
+            System.out.println("Not enough money!");
+            System.out.printf("Wingard needs %.2f leva more.", neededMoney);
+        }
+    }
+}
