@@ -15,7 +15,7 @@ public class worldSwimmingRecord_06 {
 
         double allTime = swimmingTime + resistingWater;
 
-        if (recordInSeconds < allTime){
+        if (recordInSeconds <= allTime){
             double secondSlower = Math.abs(recordInSeconds - allTime);
             System.out.printf("No, he failed! He was %.2f seconds slower.", secondSlower);
         }else {
